@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakeProDz - Le Devis Pâtisserie en 60 Secondes</title>
+    <meta name="description" content="Crée des devis de gâteaux pro, élégants et partageables pour WhatsApp & Instagram. 2000 DA une fois, à vie.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg: #fff1f5;       
+            --card: #ffffff;     
+            --text: #5e1c3e;     
+            --accent: #5e1c3e;   
+            --border: #f8e1e7;   
+            --gold: #c5a059; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg);
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text); 
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; text-transform: uppercase; }
+        .logo span { font-size: 10px; color: var(--accent); font-weight: 700; letter-spacing: 3px; display: block; }
+        .btn { padding: 12px 24px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 14px; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(94, 28, 62, 0.2); }
+
+        .hero { padding: 60px 0 80px; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 em { font-style: italic; font-weight: 400; }
+        .hero p { font-size: 18px; opacity: 0.8; max-width: 600px; margin: 0 auto 35px; }
+        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+        
+        .mockup { 
+            margin-top: 60px; 
+            background: var(--card); 
+            border: 1px solid var(--border);
+            padding: 15px; 
+            border-radius: 35px; 
+            box-shadow: 0 30px 60px rgba(94, 28, 62, 0.1);
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .mockup img { width: 100%; border-radius: 25px; display: block; }
+
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title span { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent); letter-spacing: 1.5px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-top: 10px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--card); border: 1px solid var(--border); padding: 30px; border-radius: 25px; }
+        .card-icon { font-size: 32px; margin-bottom: 15px; }
+        .card h3 { font-size: 20px; margin-bottom: 10px; }
+        .card p { opacity: 0.8; font-size: 15px; }
+
+        .steps { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .step { text-align: center; }
+        .step-num { width: 50px; height: 50px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; margin: 0 auto 20px; }
+        
+        .pricing { text-align: center; }
+        .price-box { 
+            background: var(--card); 
+            border: 2px solid var(--accent); 
+            padding: 45px 30px; 
+            border-radius: 35px; 
+            max-width: 450px; 
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(94, 28, 62, 0.1);
+        }
+        .price-box .badge { background: var(--gold); color: #1a040a; padding: 6px 14px; border-radius: 10px; font-size: 11px; font-weight: 800; display: inline-block; margin-bottom: 20px; }
+        .price-box h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px; }
+        .price { font-size: 56px; font-weight: 800; color: var(--accent); margin: 20px 0; }
+        .price small { font-size: 16px; font-weight: 600; opacity: 0.7; }
+        .price-box ul { list-style: none; text-align: left; margin: 30px 0; }
+        .price-box ul li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+        .price-box ul li:before { content: "✓"; color: var(--gold); font-weight: 800; margin-right: 10px; }
+        .v2-tease { margin-top: 20px; font-size: 13px; font-style: italic; opacity: 0.8; }
+        
+        .cta { padding: 80px 0; text-align: center; }
+        .cta-box { background: var(--accent); color: var(--gold); padding: 60px 40px; border-radius: 35px; }
+        .cta-box h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--gold); margin-bottom: 15px; }
+        .cta-box p { color: white; opacity: 0.9; margin-bottom: 30px; }
+        .btn-gold { background: var(--gold); color: #1a040a; }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4); }
+
+        footer { padding: 40px 0; text-align: center; font-size: 12px; opacity: 0.6; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .hero-btns { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; text-align: center; }
+            .price { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <nav class="nav">
+            <div class="logo">
+                CAKEPRODZ
+                <span>CAKE PRO</span>
+            </div>
+            <a href="#tarif" class="btn btn-primary">Acheter 2000 DA</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>Arrête de perdre 30min <br>par <em>Devis Gâteau</em></h1>
+            <p>CakeProDz génère des devis élégants, calcule le prix auto, et envoie tout sur WhatsApp en 1 clic. Fait pour les pâtissières algériennes qui veulent gagner du temps.</p>
+            <div class="hero-btns">
+                <a href="#tarif" class="btn btn-primary">🚀 Obtenir CakeProDz</a>
+                <a href="#features" class="btn btn-secondary">Voir les fonctionnalités</a>
+            </div>
+            
+            <div class="mockup">
+                <img src="https://i.imgur.com/8Q1Zz8L.png" alt="Aperçu CakeProDz sur mobile">
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <div class="section-title">
+                <span>POURQUOI CAKEPRODZ</span>
+                <h2>Tout ce qu'il te faut. Rien de plus.</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Calcul Auto du Prix</h3>
+                    <p>Parts, étages, saveurs, extras... Le total se met à jour en live. Fini les erreurs de calcul à 2h du mat.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3>Lien Client Magique</h3>
+                    <p>Configure ton menu 1 fois dans l'admin. Génère un lien unique à partager. Le client voit tes prix, pas ton admin.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>WhatsApp & Insta Ready</h3>
+                    <p>Le devis se copie direct avec un beau formatage. Tu colles sur WhatsApp ou en DM Insta. Zéro prise de tête.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>100% à Ton Image</h3>
+                    <p>Change le nom, les saveurs, les prix, le message d'accueil. Mode sombre inclus. C'est ta boutique.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Admin Sécurisé</h3>
+                    <p>Ton panel est protégé par code. Les clients ne peuvent rien modifier. Tes données restent dans ton téléphone.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📂</div>
+                    <h3>Un Fichier. À Vie.</h3>
+                    <p>Pas d'abonnement, pas de compte. C'est un fichier HTML que tu gardes. Marche même sans internet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="steps">
+            <div class="container">
+                <div class="section-title">
+                    <span>COMMENT ÇA MARCHE</span>
+                    <h2>3 étapes. 60 secondes.</h2>
+                </div>
+                <div class="grid">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h3>Configure</h3>
+                        <p>Ajoute tes saveurs et extras 1 seule fois dans le panel admin ⚙️</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h3>Partage</h3>
+                        <p>Envoie le lien à ta cliente. Elle choisit tout sur la page</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h3>Commande</h3>
+                        <p>Elle clique sur WhatsApp. Tu reçois un devis complet prêt à valider</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tarif" class="pricing container">
+            <div class="section-title">
+                <span>TARIF UNIQUE</span>
+                <h2>Paye une fois. Utilise à vie.</h2>
+            </div>
+            <div class="price-box">
+                <div class="badge">LICENCE À VIE</div>
+                <h3>CakeProDz V1</h3>
+                <div class="price">2000 <small>DA</small></div>
+                <ul>
+                    <li>App complète en fichier HTML</li>
+                    <li>Panel admin + mode client</li>
+                    <li>Calcul auto + liens WhatsApp/IG</li>
+                    <li>Personnalisation illimitée</li>
+                    <li>Mises à jour V1 gratuites</li>
+                    <li>Support par DM Instagram</li>
+                </ul>
+                <a href="https://wa.me/213792269732?text=Salam%20Raouf%2C%20n7ab%20nechri%20CakeProDz%20V1%20à%202000%20DA" class="btn btn-primary" style="width:100%" onclick="trackBuy()">Commander sur WhatsApp</a>
+                <p class="v2-tease">Psst... attendez notre V2 : catalogue photo, export PDF, et gestion commandes 🔥</p>
+            </div>
+        </section>
+
+        <section class="cta container">
+            <div class="cta-box">
+                <h2>Prête à gagner 5h par semaine ?</h2>
+                <p>Rejoins les pâtissières qui ont dit bye-bye aux devis sur papier.</p>
+                <a href="https://wa.me/213792269732?text=Salam%20Raouf%2C%20n7ab%20nechri%20CakeProDz%20V1%20à%202000%20DA" class="btn btn-gold" onclick="trackBuy()">Acheter CakeProDz - 2000 DA</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        DESIGNED BY RAOUF STUDIO © 2026
+    </footer>
+
+<script>
+    function trackBuy() {
+        console.log('Clic achat vers WhatsApp 213792269732');
+        // Tu peux ajouter un pixel Facebook ou Google Analytics ici plus tard
+    }
+</script>
+
+</body>
+</html>
